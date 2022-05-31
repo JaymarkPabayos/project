@@ -11,24 +11,21 @@
       <div class="container">  
             <div class="box-header with-border">
               <h3 class="box-title">Accounts</h3>
- 
-              <!-- /.box-tools -->
             </div> 
+            <hr>
               <div class="form-group">
-                <div class="col-md-11">
+              <div class="col-md-6">
                 <label class="col-md-4 control-label" for=
                   "FNAME">Firstname:</label>
-
                   <div class="col-md-8">
-                    <input name="JOBID" type="hidden" value="<?php echo $_GET['job'];?>">
-                     <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
+                    <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
                         "Firstname" type="text" value="<?php echo $appl->FNAME;?>"  onkeyup="javascript:capitalize(this.id, this.value);" autocomplete="off">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "LNAME">Lastname:</label>
 
@@ -40,7 +37,7 @@
               </div>
 
               <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "MNAME">Middle Name:</label>
 
@@ -52,7 +49,7 @@
               </div> 
 
               <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "ADDRESS">Address:</label>
 
@@ -65,7 +62,7 @@
               </div> 
 
               <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "Gender">Sex:</label>
 
@@ -87,7 +84,7 @@
               </div> 
 
                <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "BIRTHDATE">Date of Birth:</label>
 
@@ -103,7 +100,7 @@
               </div>  
 
                <div class="form-group">
-                  <div class="col-md-11">
+                  <div class="col-md-6">
                     <label class="col-md-4 control-label" for=
                     "BIRTHPLACE">Place of Birth:</label>
 
@@ -117,7 +114,7 @@
 
 
                <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "TELNO">Contact No.:</label>
 
@@ -130,7 +127,7 @@
               </div> 
 
                <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "CIVILSTATUS">Civil Status:</label>
 
@@ -147,7 +144,7 @@
               </div>  
 
                <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "EMAILADDRESS">Email Address:</label> 
                   <div class="col-md-8">
@@ -157,7 +154,7 @@
               </div>  
               
               <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "DEGREE">Educational Attainment:</label>
 
@@ -168,7 +165,7 @@
                 </div>
               </div>  
               <div class="form-group">
-                <div class="col-md-11">
+                <div class="col-md-6">
                   <label class="col-md-4 control-label" for=
                   "submit"></label>
 

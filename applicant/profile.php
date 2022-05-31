@@ -82,17 +82,7 @@
 
           <!-- <h1><?php echo $applicant->FNAME .' '.$applicant->MNAME.' '.$applicant->LNAME; ?>  </h1> -->
 <?php 
-    // if ($view =="message") { 
-    //  require_once("message.php");
-    // }elseif($view=='notification'){  
-    //     require_once("notification.php");  
-    // }elseif($view=='appliedjobs'){    
-    //     require_once("appliedjobs.php"); 
-    // }elseif($view=='accounts'){  
-    //     require_once("accounts.php");  
-    // }else{ 
-    //     require_once("appliedjobs.php");
-    // } 
+    
 
     switch ($view) {
       case 'message':
@@ -109,7 +99,7 @@
         break;
       case 'accounts':
         # code...
-        // require_once("accounts.php");
+        require_once("accounts.php");
         break;
       
       default:
