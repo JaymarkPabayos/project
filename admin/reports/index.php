@@ -5,23 +5,12 @@ if(!isset($_SESSION['ADMIN_USERID'])){
 }
 
 $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
-	$title="Employees"; 
+	$title="Reports"; 
 	$header=$view; 
 switch ($view) {
 	case 'list' :
 		$content    = 'list.php';		
 		break;
-	case 'add' :
-		$content    = 'add.php';		
-		break;
-
-	case 'edit' :
-		$content    = 'edit.php';		
-		break;
-    case 'view' :
-		$content    = 'view.php';		
-		break;
-
 	default :
 		$content    = 'list.php';		
 }

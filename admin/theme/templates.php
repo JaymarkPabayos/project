@@ -9,7 +9,7 @@
                 // echo $viewTitle['Title'];
             ?>
         </title>
-       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
         <link rel="stylesheet" href="<?php echo web_root;?>bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome -->
@@ -23,7 +23,7 @@
         <!-- Theme style -->
         <link rel="stylesheet" href="<?php echo web_root;?>dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="<?php echo web_root;?>dist/css/skins/_all-skins.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="<?php echo web_root;?>plugins/iCheck/flat/blue.css">
@@ -45,15 +45,44 @@
     </head>
 
  <body class="hold-transition skin-blue fixed sidebar-mini">
+ <?php
+              $user = New User();
+              $singleuser = $user->single_user($_SESSION['ADMIN_USERID']);
+
+          ?>
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo web_root;?>/admin/" class="logo">
+    <a href="
+      <?php
+          if($singleuser->ROLE === "Administrator"){
+      ?>
+        <?php echo web_root;?>/admin/
+      <?php } else {  ?>
+        <?php echo web_root;?>/admin/reports
+      <?php } ?>
+      " class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>PESO</b></span>
+      <span class="logo-mini"><b>
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
+        PESO Super Admin
+        <?php } else {  ?>
+        PESO Staff
+        <?php } ?>
+      </b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>PESO</b></span>
+      <span class="logo-lg"><b>
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
+        PESO Super Admin
+        <?php } else {  ?>
+        PESO Staff
+        <?php } ?>
+      </b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -65,11 +94,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
  
-          <?php
-              $user = New User();
-              $singleuser = $user->single_user($_SESSION['ADMIN_USERID']);
-
-          ?>
+          
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu" style="padding-right: 15px;"  >
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -149,14 +174,26 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       
- 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu"> 
+      <?php
+          if($singleuser->ROLE === "Staff"){
+        ?>
+        <li  class="<?php echo (currentpage() == 'index.php') ? "active" : false;?>" >
+          <a href="<?php echo web_root ;?>admin/reports">
+            <i class="fa fa-clipboard"></i> <span>Reports</span>  
+          </a> 
+        </li> 
+        <?php } else null ?>
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
         <li  class="<?php echo (currentpage() == 'index.php') ? "active" : false;?>" >
           <a href="<?php echo web_root ;?>admin/">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>  
           </a> 
         </li> 
+        <?php } else null ?>
         <li class="<?php echo (currentpage() == 'company') ? "active" : false;?>" >
           <a href="<?php echo web_root ;?>admin/company/">
             <i class="fa fa-building"></i> <span>Company</span> 
@@ -167,11 +204,15 @@
             <i class="fa fa-suitcase"></i> <span>Vacancy</span> 
           </a>
         </li>
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
         <li class="<?php echo (currentpage() == 'employee') ? "active" : false;?>" >
           <a href="<?php echo web_root ;?>admin/employee/">
             <i class="fa fa-users"></i> <span>Employee</span> 
           </a>
         </li> 
+        <?php } else null ?>
         <li class="<?php echo (currentpage() == 'applicants') ? "active" : false;?>" > 
           <a href="<?php echo web_root ;?>admin/applicants/">
             <i class="fa fa-users"></i> <span>Applicants</span> 
@@ -190,7 +231,7 @@
             <i class="fa fa-list"></i> <span>Category</span>  
           </a>
         </li> 
-       <!--  <li class="treeview">
+      <!--  <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
             <span>UI Elements</span>
@@ -205,12 +246,14 @@
             <li><a href="<?php echo web_root ;?>pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
           </ul>
         </li> -->
-         
-         <li class="<?php echo (currentpage() == 'user') ? "active" : false;?>">
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
+        <li class="<?php echo (currentpage() == 'user') ? "active" : false;?>">
           <a href="<?php echo web_root; ?>admin/user/">
             <i class="fa fa-user"></i> <span>Manage Users</span> </a>
         </li>
-        
+        <?php } else null ?>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -268,7 +311,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.2
     </div>
-    <strong>Copyright &copy; 2021 <a href="#">CampCodes</a>.</strong> All rights
+    <strong>Copyright &copy; 2022 <a href="/peso-job-hunt/admin">PESO Job Hunt</a>.</strong> All rights
     reserved.
   </footer>
 
