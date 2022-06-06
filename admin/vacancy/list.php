@@ -6,16 +6,15 @@
 	<div class="row">
        	 <div class="col-lg-12">
             <h1 class="page-header">List of Vacancies  <a href="index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Add Job Vacancy</a>  </h1>
-       		</div>
+						<button class="btn btn-primary btn-xs" style="margin-bottom: 10px;" onclick="window.print(); ">Print File</button>
+				</div>
         	<!-- /.col-lg-12 -->
    		 </div>
-	 		    <form action="controller.php?action=delete" Method="POST">  	
-			     <div class="table-responsive">					
+				<form action="controller.php?action=delete" Method="POST">  	
+					<div class="table-responsive">					
 				<table id="dash-table" class="table table-striped table-bordered table-hover"  style="font-size:12px" cellspacing="0">
-				
 				  <thead>
 				  	<tr>
-
 				  		<!-- <th>No.</th> -->
 				  		<th>Company Name</th> 
 				  		<th>Occupation Title</th> 

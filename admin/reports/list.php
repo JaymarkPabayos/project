@@ -7,9 +7,7 @@
 	<div class="row">
     <div class="col-lg-12">
             <h1 class="page-header">List of Applicant's</h1>
-						<button class="btn btn-primary btn-xs" style="margin-bottom: 10px;" onclick="
-							window.print(); 
-						">Download</button>
+						<button class="btn btn-primary btn-xs" style="margin-bottom: 10px;" onclick="window.print(); ">Print File</button>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
