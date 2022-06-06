@@ -15,9 +15,10 @@
 				  		<th>Account ID</th>
 				  		<th> Account Name</th>
 				  		<th>Username</th>
+				  		<th> Account Address</th>
+				  		<th> Account contact</th>
 				  		<th>Role</th>
 				  		<th width="10%" >Action</th>
-				 
 				  	</tr>	
 				  </thead> 
 				  <tbody>
@@ -27,25 +28,23 @@
 				  		$mydb->setQuery("SELECT * 
 											FROM  `tblusers`");
 				  		$cur = $mydb->loadResultList();
-
 						foreach ($cur as $result) {
 				  		echo '<tr>';
 				  		// echo '<td width="5%" align="center"></td>';
 				  		echo '<td>' . $result->USERID.'</a></td>';
 				  		echo '<td>' . $result->FULLNAME.'</a></td>';
 				  		echo '<td>'. $result->USERNAME.'</td>';
+				  		echo '<td>' . $result->ADDRESS.'</a></td>';
+				  		echo '<td>' . $result->CONTACT.'</a></td>';
 				  		echo '<td>'. $result->ROLE.'</td>';
 				  		If($result->USERID==$_SESSION['ADMIN_USERID'] || $result->ROLE=='MainAdministrator' || $result->ROLE=='Administrator') {
 				  			$active = "Disabled";
-
 				  		}else{
 				  			$active = "";
-
 				  		}
-
 				  		echo '<td align="center" > <a title="Edit" href="index.php?view=edit&id='.$result->USERID.'"  class="btn btn-primary btn-xs  ">  <span class="fa fa-edit fw-fa"></span></a>
-				  					 <a title="Delete" href="controller.php?action=delete&id='.$result->USERID.'" class="btn btn-danger btn-xs" '.$active.'><span class="fa fa-trash-o fw-fa"></span> </a>
-				  					 </td>';
+										<a title="Delete" href="controller.php?action=delete&id='.$result->USERID.'" class="btn btn-danger btn-xs" '.$active.'><span class="fa fa-trash-o fw-fa"></span> </a>
+										</td>';
 				  		echo '</tr>';
 				  	} 
 				  	?>

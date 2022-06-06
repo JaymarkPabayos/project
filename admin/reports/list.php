@@ -7,16 +7,20 @@
 	<div class="row">
     <div class="col-lg-12">
             <h1 class="page-header">List of Applicant's</h1>
-       		</div>
-        	<!-- /.col-lg-12 -->
-   		 </div>
-						<form class="wow fadeInDownaction" action="/peso-job-hunt/admin/applicants/controller.php?action=delete" Method="POST">   		
-							<table id="dash-table" class="table table-striped  table-hover table-responsive" style="font-size:12px" cellspacing="0">
-
+						<button class="btn btn-primary btn-xs" style="margin-bottom: 10px;" onclick="
+							window.print(); 
+						">Download</button>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+				<form class="wow fadeInDownaction" action="/peso-job-hunt/admin/applicants/controller.php?action=delete" Method="POST">   		
+				<table id="dash-table" class="table table-striped  table-hover table-responsive" style="font-size:12px" cellspacing="0">
 							  <thead>
 							  	<tr>
 									<th>Applicant</th>
 									<th>Job Title</th>
+									<th>Address</th>
+									<th>Contact</th>
 									<th>Company</th>
 									<th>Applied Date</th> 
 									<th>Remarks</th>
@@ -35,6 +39,8 @@
 							  		// echo '<td width="5%" align="center"></td>';
 							  		echo '<td>'. $result->APPLICANT.'</td>';
 							  		echo '<td>' . $result->OCCUPATIONTITLE.'</a></td>';
+							  		echo '<td>' . $result->ADDRESS.'</a></td>';
+							  		echo '<td>' . $result->CONTACTNO.'</a></td>';
 							  		echo '<td>' . $result->COMPANYNAME.'</a></td>'; 
 							  		echo '<td>'. $result->REGISTRATIONDATE.'</td>';
 							  		echo '<td>'. $result->REMARKS.'</td>';
@@ -43,8 +49,8 @@
 														<span class="fa fa-info fw-fa"></span> View</a> 
 														<a title="Remove" href="/peso-job-hunt/admin/applicants/index.php?view=delete&id='.$result->REGISTRATIONID.'"  class="btn btn-danger btn-xs  ">
 														<span class="fa fa-trash-o fw-fa"></span> Remove</a> 
-					  					 </td>';
-							  		echo '</tr>';
+											</td>';
+										echo '</tr>';
 							  	} 
 							  	?>
 							  </tbody>
@@ -54,13 +60,12 @@
 							<div class="row">
        	 <div class="col-lg-12">
             <h1 class="page-header">List of Vacancies  <a href="/peso-job-hunt/admin/vacancy/index.php?view=add" class="btn btn-primary btn-xs  ">  <i class="fa fa-plus-circle fw-fa"></i> Add Job Vacancy</a>  </h1>
-       		</div>
+				</div>
         	<!-- /.col-lg-12 -->
    		 </div>
-	 		    <form action="controller.php?action=delete" Method="POST">  	
-			     <div class="table-responsive">					
+					<form action="controller.php?action=delete" Method="POST">  	
+					<div class="table-responsive">					
 				<table id="dash-table" class="table table-striped table-bordered table-hover"  style="font-size:12px" cellspacing="0">
-				
 				  <thead>
 				  	<tr>
 

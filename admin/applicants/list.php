@@ -17,6 +17,8 @@
 							  	<tr>
 									<th>Applicant</th>
 									<th>Job Title</th>
+									<th>Address</th>
+									<th>Contact</th>
 									<th>Company</th>
 									<th>Applied Date</th> 
 									<th>Remarks</th>
@@ -35,6 +37,8 @@
 							  		// echo '<td width="5%" align="center"></td>';
 							  		echo '<td>'. $result->APPLICANT.'</td>';
 							  		echo '<td>' . $result->OCCUPATIONTITLE.'</a></td>';
+							  		echo '<td>' . $result->ADDRESS.'</a></td>';
+							  		echo '<td>' . $result->CONTACTNO.'</a></td>';
 							  		echo '<td>' . $result->COMPANYNAME.'</a></td>'; 
 							  		echo '<td>'. $result->REGISTRATIONDATE.'</td>';
 							  		echo '<td>'. $result->REMARKS.'</td>';

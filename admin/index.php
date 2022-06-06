@@ -15,7 +15,7 @@ switch ($view) {
     // $content='home.php'; 
     if ($singleuser->ROLE==='Staff') {
         # code...
-      redirect('company/');
+      redirect('reports/');
 
     } 
     break;  

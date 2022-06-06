@@ -68,9 +68,9 @@
         <?php
           if($singleuser->ROLE === "Administrator"){
         ?>
-        PESO Super Admin
+        PESO
         <?php } else {  ?>
-        PESO Staff
+        PESO
         <?php } ?>
       </b></span>
       <!-- logo for regular state and mobile devices -->
@@ -78,9 +78,9 @@
         <?php
           if($singleuser->ROLE === "Administrator"){
         ?>
-        PESO Super Admin
+        PESO Admin
         <?php } else {  ?>
-        PESO Staff
+        PESO
         <?php } ?>
       </b></span>
     </a>
@@ -176,14 +176,43 @@
       
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu"> 
-      <?php
+        <?php
           if($singleuser->ROLE === "Staff"){
         ?>
-        <li  class="<?php echo (currentpage() == 'index.php') ? "active" : false;?>" >
-          <a href="<?php echo web_root ;?>admin/reports">
+        <li href="<?php echo web_root ;?>admin/reports/" class="<?php echo (currentpage() == 'index.php') ? "active" : false;?>">
+          <a href="<?php echo web_root ;?>admin/reports/">
+            <i class="fa fa-clipboard"></i>
+            <span>
+              Reports
+            </span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li class="<?php echo (currentpage() == 'applicants') ? "active" : false;?>">
+              <a href="<?php echo web_root ;?>admin/applicants/">
+                <i class="fa fa-users"></i> <span>Applicants</span> 
+                <span class="label label-primary pull-right">
+                  <?php
+                    $sql = "SELECT count(*) as 'APPL' FROM `tbljobregistration` WHERE `PENDINGAPPLICATION`=1";
+                    $mydb->setQuery($sql);
+                    $pending = $mydb->loadSingleResult();
+                    echo $pending->APPL;
+                  ?>
+                </span>
+              </a>
+            </li>
+            <li class="<?php echo (currentpage() == 'vacancy') ? "active" : false;?>" >
+              <a href="<?php echo web_root ;?>admin/vacancy/">
+                <i class="fa fa-suitcase"></i> <span>Vacancy</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li  class="<?php echo (currentpage() == 'index.php') ? "active" : false;?>" >
+          <a href="<?php echo web_root ;?>admin/reports/">
             <i class="fa fa-clipboard"></i> <span>Reports</span>  
           </a> 
-        </li> 
+        </li>  -->
         <?php } else null ?>
         <?php
           if($singleuser->ROLE === "Administrator"){
@@ -199,11 +228,15 @@
             <i class="fa fa-building"></i> <span>Company</span> 
           </a>
         </li>
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
         <li class="<?php echo (currentpage() == 'vacancy') ? "active" : false;?>" >
           <a href="<?php echo web_root ;?>admin/vacancy/">
             <i class="fa fa-suitcase"></i> <span>Vacancy</span> 
           </a>
         </li>
+        <?php } else null ?>
         <?php
           if($singleuser->ROLE === "Administrator"){
         ?>
@@ -213,6 +246,9 @@
           </a>
         </li> 
         <?php } else null ?>
+        <?php
+          if($singleuser->ROLE === "Administrator"){
+        ?>
         <li class="<?php echo (currentpage() == 'applicants') ? "active" : false;?>" > 
           <a href="<?php echo web_root ;?>admin/applicants/">
             <i class="fa fa-users"></i> <span>Applicants</span> 
@@ -225,42 +261,27 @@
               ?>
             </span>
           </a>
-        </li> 
-        <li class="<?php echo (currentpage() == 'category') ? "active" : false;?>" > 
+        </li>
+        <?php } else null ?>
+        <li class="<?php echo (currentpage() == 'category') ? "active" : false;?>">
           <a href="<?php echo web_root ;?>admin/category/">
-            <i class="fa fa-list"></i> <span>Category</span>  
+            <i class="fa fa-list"></i> <span>Category</span>
           </a>
         </li> 
-      <!--  <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo web_root ;?>pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="<?php echo web_root ;?>pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li> -->
         <?php
           if($singleuser->ROLE === "Administrator"){
         ?>
         <li class="<?php echo (currentpage() == 'user') ? "active" : false;?>">
           <a href="<?php echo web_root; ?>admin/user/">
-            <i class="fa fa-user"></i> <span>Manage Users</span> </a>
+            <i class="fa fa-user"></i> <span>Administrator</span> </a>
         </li>
         <?php } else null ?>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-   <!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
   <section class="content-header">
       <h1>
         <?php echo isset($title) ? $title : ''; ?>
@@ -268,7 +289,6 @@
       </h1>
       <ol class="breadcrumb">
         <?php
-
           if ($title!='Home') {
             # code... 
             $active_title = '';
@@ -282,28 +302,24 @@
             echo  $active_title;
             echo  isset($_GET['view']) ? '<li class="active">'.$_GET['view'].'</li>' : '';
           } 
-
-
         ?>
       </ol>
     </section>
-         <section class="content">
-
+        <section class="content">
           <div class="row">
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-body">
-
-              <?php 
-               check_message();
-               require_once $content; 
-               ?> 
-             </div>
-             </div>
-           </div>
-         </div>
-         </section>
- </div>
+                <?php 
+                  check_message();
+                  require_once $content; 
+                ?> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
   <!-- /.content-wrapper -->
 
 

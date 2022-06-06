@@ -39,6 +39,8 @@ switch ($action) {
 			$user->USERID 			= $_POST['user_id'];
 			$user->FULLNAME 		= $_POST['U_NAME'];
 			$user->USERNAME			= $_POST['U_USERNAME'];
+			$user->ADDRESS			= $_POST['U_ADDRESS'];
+			$user->CONTACT			= $_POST['U_CONTACT'];
 			$user->PASS				=sha1($_POST['U_PASS']);
 			$user->ROLE				=  $_POST['U_ROLE'];
 			$user->create();
@@ -62,6 +64,8 @@ switch ($action) {
 			$user->FULLNAME 		= $_POST['U_NAME'];
 			$user->USERNAME			= $_POST['U_USERNAME'];
 			$user->PASS				=sha1($_POST['U_PASS']);
+			$user->ADDRESS			= $_POST['U_ADDRESS'];
+			$user->CONTACT			= $_POST['U_CONTACT'];
 			$user->ROLE				= $_POST['U_ROLE'];
 			$user->update($_POST['USERID']);
 
@@ -70,7 +74,7 @@ switch ($action) {
 
 			if (isset($_GET['view'])) {
 				# code...
-				  message("Profile has been updated!", "success");
+				message("Profile has been updated!", "success");
 				redirect("index.php?view=view");
 			}else{ 
 				message("[". $_POST['U_NAME'] ."] has been updated!", "success");
@@ -100,7 +104,6 @@ switch ($action) {
 
 				$user = New User();
 	 		 	$user->delete($id);
-			 
 			message("User has been deleted!","info");
 			redirect('index.php');
 		// }

@@ -8,8 +8,7 @@ require_once("../include/initialize.php");
     redirect(web_root."admin/index.php");
   }
   ?>
-   
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -41,7 +40,7 @@ require_once("../include/initialize.php");
   <!-- /.login-logo -->
   <div class="login-box-body" style="min-height: 400px;">
     <img class="center-block m-2" src="./photos/logo.jpg" height="128" width="128" alt="PESO Logo">
-    <h1 class="login-box-msg">PESO Admin</h1>
+    <h1 class="login-box-msg">PESO</h1>
     <hr/>
     <p><?php check_message(); ?></p>
 
